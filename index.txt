@@ -24,7 +24,6 @@ Palermo, Sicily, Italy
 
 About
 Resume
-Portfolio
 Contact
 
 # about
@@ -44,7 +43,7 @@ alt = design icon
 Software Solutions
 The most efficient and high-quality software solutions in banking and insurance sector. I mainly work with Java EE and Spring framework and follow the entire process from analysis to tests creation and demo preview.
 
-## clients
+## knowledge
 
 Knowledge
 
