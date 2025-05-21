@@ -11,22 +11,6 @@ This is a portfolio website built using [Astro](https://astro.build/), a static 
 ![portfolio-demo-img](public/demo-img.jpg)
 
 
-Inside of your Astro project, you'll find the following directories and files:
-
-```text
-/
-├── public/
-│   └── ...
-├── src/
-│   ├── components/
-│   │   └── ...
-│   ├── layouts/
-│   │   └── ...
-│   └── pages/
-│       └── ...
-└── package.json
-```
-
 
 to run the project you simply need to
 
