@@ -28,6 +28,15 @@ Inside of your Astro project, you'll find the following directories and files:
 ```
 
 
-to run the project you simply need to:
+to run the project you simply need to
+
+1. Clone and install
+```bash
 npm install
+```
+
+2. Run locally
+
+```bash
 npm run dev
+```
