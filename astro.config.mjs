@@ -6,6 +6,6 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://sgogov.dev",
+  site: "https://michelesanfilippo.github.io",
   integrations: [react(), sitemap()],
 });
