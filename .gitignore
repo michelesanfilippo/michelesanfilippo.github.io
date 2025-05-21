@@ -1,10 +1,19 @@
-# build output
-dist/
-# generated types
-.astro/
-
-# dependencies
 node_modules/
+dist/
+*.tsbuildinfo
+.DS_Store
+.vercel
+.netlify
+_site/
+scripts/smoke/*-main/
+scripts/memory/project/src/pages/
+benchmark/projects/
+benchmark/results/
+*.log
+.turbo/
+.eslintcache
+.pnpm-store
+
 
 # logs
 npm-debug.log*
@@ -17,8 +26,6 @@ pnpm-debug.log*
 .env
 .env.production
 
-# macOS-specific files
-.DS_Store
 
-# firebase
-.firebase/
+# Astro
+.astro/
