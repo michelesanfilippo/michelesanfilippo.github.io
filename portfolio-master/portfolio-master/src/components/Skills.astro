@@ -1,0 +1,83 @@
+---
+import Icon from "./ui/Icon/Icon.astro";
+---
+
+<section class="box skills">
+  <div class="stack gap-2 lg:gap-4">
+    <Icon
+      icon="terminal-window"
+      color="var(--accent-regular)"
+      size="2.5rem"
+      gradient
+    />
+    <h2>Back-end</h2>
+    <p>
+      Expertise in backend technologies. From server-side logic to web services and Restful APIs.
+      I mainly work in financial services to deliver comprehensive web solutions.
+    </p>
+  </div>
+  <div class="stack gap-2 lg:gap-4">
+    <Icon icon="layout" color="var(--accent-regular)" size="2.5rem" gradient />
+    <h2>Containerization</h2>
+    <p>
+      I work with Docker and Kubernetes to deliver software in containers and manage them through Kubernetes.
+    </p>
+  </div>
+  <div class="stack gap-2 lg:gap-4">
+    <Icon
+      icon="performance"
+      color="var(--accent-regular)"
+      size="2.5rem"
+      gradient
+    />
+    <h2>Cloud and Performance</h2>
+    <p>
+      Performance-driven development. 
+      I ensure the best solution possible and i follow the development from code to tests
+      and use tools like Jenkins and SonarQube to ensure high quality.
+      I work in cloud using AWS to have more scalability and availability.
+    </p>
+  </div>
+</section>
+
+<style>
+  .box {
+    border: 1px solid var(--gray-800);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    background-color: var(--gray-999_40);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .skills {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .skills h2 {
+    font-size: var(--text-lg);
+  }
+
+  .skills p {
+    color: var(--gray-300);
+    max-width: 35rem;
+  }
+
+  @media (min-width: 60em) {
+    .box {
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5rem;
+    }
+
+    .skills h2 {
+      font-size: var(--text-2xl);
+    }
+  }
+</style>
