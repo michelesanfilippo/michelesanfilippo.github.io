@@ -113,7 +113,7 @@ function App() {
           handle="michelesanfilippo"
           status="I build stuff."
           contactText="Contact Me"
-          avatarUrl="/avatar/download.png"
+          avatarUrl="/avatar/IMG_6291.png"
           showUserInfo={true}
           enableTilt={true}
           enableMobileTilt={true}
@@ -238,5 +238,6 @@ function App() {
     </div>
   )
 }
+
 
 export default App
