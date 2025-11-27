@@ -38,7 +38,7 @@ function App() {
           rel="noopener noreferrer"
           style={{
             color: 'rgba(255, 255, 255, 0.7)',
-            fontSize: '1.27rem',
+            fontSize: '1.4rem',
             transition: 'all 0.3s ease',
             cursor: 'pointer'
           }}
@@ -60,7 +60,7 @@ function App() {
           rel="noopener noreferrer"
           style={{
             color: 'rgba(255, 255, 255, 0.7)',
-            fontSize: '1.27rem',
+            fontSize: '1.4rem',
             transition: 'all 0.3s ease',
             cursor: 'pointer'
           }}
@@ -104,7 +104,7 @@ function App() {
         position: 'absolute', 
         left: '10%', 
         top: '50%', 
-        transform: 'translateY(-50%) scale(1.15)',
+        transform: 'translateY(-50%) scale(1.265)',
         zIndex: 10 
       }}>
         <ProfileCard
@@ -126,7 +126,7 @@ function App() {
         position: 'absolute', 
         right: '8%', 
         top: '50%', 
-        transform: 'translateY(-50%) scale(1.15)',
+        transform: 'translateY(-50%) scale(1.265)',
         zIndex: 10,
         display: 'flex',
         flexDirection: 'column',
