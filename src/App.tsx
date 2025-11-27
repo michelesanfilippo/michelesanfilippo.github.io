@@ -113,7 +113,7 @@ function App() {
           handle="michelesanfilippo"
           status="I build stuff."
           contactText="Contact Me"
-          avatarUrl="/src/avatar/download.png"
+          avatarUrl="/avatar/download.png"
           showUserInfo={true}
           enableTilt={true}
           enableMobileTilt={true}
