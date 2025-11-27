@@ -6,3 +6,68 @@
 html {
   font-size: 112%;
 }
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 1024px) {
+  html {
+    font-size: 105%;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 95%;
+  }
+}
+
+/* Mobile Layout Adjustments */
+@media (max-width: 1200px) {
+  .profile-card-container {
+    left: 5% !important;
+    transform: translateY(-50%) scale(0.9) !important;
+  }
+  
+  .spotlight-cards-container {
+    right: 5% !important;
+    transform: translateY(-50%) scale(0.9) !important;
+    max-width: 550px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-card-container {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    transform: scale(0.8) !important;
+    margin: 60px auto 20px !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  
+  .spotlight-cards-container {
+    position: relative !important;
+    right: 0 !important;
+    top: 0 !important;
+    transform: scale(0.8) !important;
+    margin: 0 auto 80px !important;
+    max-width: 90% !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+  
+  .main-container {
+    height: auto !important;
+    overflow-y: auto !important;
+  }
+  
+  .social-icons {
+    top: 15px !important;
+  }
+}

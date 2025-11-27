@@ -7,7 +7,7 @@ import { faReact, faInstagram, faGithub, faLinkedin } from '@fortawesome/free-br
 
 function App() {
   return (
-    <div style={{ width: '100%', height: '100vh', position: 'relative', overflow: 'hidden' }}>
+    <div className="main-container" style={{ width: '100%', height: '100vh', position: 'relative', overflow: 'hidden' }}>
       {/* FloatingLines Background */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <FloatingLines 
@@ -22,7 +22,7 @@ function App() {
       </div>
 
       {/* Social Icons - Centro Alto */}
-      <div style={{
+      <div className="social-icons" style={{
         position: 'absolute',
         top: '30px',
         left: '50%',
@@ -100,7 +100,7 @@ function App() {
       </div>
 
       {/* ProfileCard - Centro Sinistra */}
-      <div style={{ 
+      <div className="profile-card-container" style={{ 
         position: 'absolute', 
         left: '14%', 
         top: '50%', 
@@ -122,7 +122,7 @@ function App() {
       </div>
 
       {/* SpotlightCards - Centro Destra */}
-      <div style={{ 
+      <div className="spotlight-cards-container" style={{ 
         position: 'absolute', 
         right: '12%', 
         top: '50%', 
