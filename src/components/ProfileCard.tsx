@@ -16,7 +16,7 @@ const round = (v: number, precision = 3) => parseFloat(v.toFixed(precision));
 const adjust = (v: number, fMin: number, fMax: number, tMin: number, tMax: number) => round(tMin + ((tMax - tMin) * (v - fMin)) / (fMax - fMin));
 
 const ProfileCardComponent = ({
-  avatarUrl = '/avatar/download.png',
+  avatarUrl = '/avatar/IMG_6291.png',
   iconUrl = '/avatar/dev.png',
   grainUrl = '',
   innerGradient,
@@ -370,3 +370,4 @@ const ProfileCardComponent = ({
 
 const ProfileCard = React.memo(ProfileCardComponent);
 export default ProfileCard;
+
