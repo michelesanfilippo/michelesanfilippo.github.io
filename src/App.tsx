@@ -38,7 +38,7 @@ function App() {
           rel="noopener noreferrer"
           style={{
             color: 'rgba(255, 255, 255, 0.7)',
-            fontSize: '1.4rem',
+            fontSize: '1.27rem',
             transition: 'all 0.3s ease',
             cursor: 'pointer'
           }}
@@ -60,7 +60,7 @@ function App() {
           rel="noopener noreferrer"
           style={{
             color: 'rgba(255, 255, 255, 0.7)',
-            fontSize: '1.4rem',
+            fontSize: '1.27rem',
             transition: 'all 0.3s ease',
             cursor: 'pointer'
           }}
