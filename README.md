@@ -1,15 +1,9 @@
-## Astro portfolio
-Simple portfolio project made in Astro, with a bit help of github copilot !
+## React portfolio
+Simple portfolio project made in React, with a bit help of github copilot !
 
-[![Astro](https://img.shields.io/badge/built%20with-astro-blueviolet)](https://astro.build/)
-[![License](https://img.shields.io/badge/license-GPLv3-blue)](LICENSE)
-
-
-This is a portfolio website built using [Astro](https://astro.build/), a static site generator that delivers lightning-fast performance and embraces the JAMstack philosophy. The blog is built using the Astro starter kit
+This is a portfolio website built using [React](https://react.dev/)
 
 ## [Live Demo](https://michelesanfilippo.github.io/)
-![portfolio-demo-img](public/demo-img.jpg)
-
 
 
 to run the project you simply need to
