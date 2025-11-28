@@ -5,7 +5,7 @@ This is a portfolio website built using [React](https://react.dev/)
 
 ## [Live Demo](https://michelesanfilippo.github.io/)
 
-![Live demo screenshot](./screen.png)
+![Live demo screenshot](public/avatar/screen.png)
 
 to run the project you simply need to
 
