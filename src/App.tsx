@@ -12,12 +12,12 @@ function App() {
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <FloatingLines 
           enabledWaves={['top', 'middle', 'bottom']}
-          lineCount={[10, 15, 20]}
+          lineCount={[6, 8, 10]}
           lineDistance={[8, 6, 4]}
           bendRadius={5.0}
           bendStrength={-0.5}
           interactive={true}
-          parallax={true}
+          parallax={false}
         />
       </div>
 
@@ -114,6 +114,7 @@ function App() {
           status="I build stuff."
           contactText="Contact Me"
           avatarUrl="/avatar/IMG_6291.png"
+          iconUrl="/avatar/dev.png"
           showUserInfo={true}
           enableTilt={true}
           enableMobileTilt={true}
@@ -140,16 +141,14 @@ function App() {
         <div style={{ display: 'flex', gap: '0.5rem', flex: 1, minHeight: 0 }}>
           <div style={{ flex: 1, minWidth: 0, display: 'flex' }}>
             <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(216, 27, 143, 0.2)">
-              <h2 style={{ color: 'white', marginBottom: '0.5rem', fontSize: '0.85rem' }}>Background</h2>
-              <p style={{ color: '#aaa', fontSize: '0.6rem', lineHeight: '1.4' }}>👋 Hi there i'm Michele, 
+              <h2 style={{ color: 'white', marginBottom: '0.4rem', fontSize: '0.9rem' }}>Background</h2>
+              <p style={{ color: '#aaa', fontSize: '0.65rem', lineHeight: '1.35' }}>👋 Hi there i'm Michele, 
                 I currently live in Palermo, Sicily. <br/> <br/>
-                I love programming and challenging myself every day, 
-                so I can learn as much as possible. I enjoy challenging projects and finding the best solutions! <br/><br/>
-                Besides programming, in my free time I like to keep an eye on some open-source projects, 
+                I love programming and challenging myself every day. I enjoy challenging projects and finding the best solutions! <br/><br/>
+                In my free time I like to keep an eye on open-source projects, 
                 related to genAI that allow me to stay updated. <br/><br/>
-                Outside the tech context, I have many hobbies, 
-                I like photography because it allows me to capture and preserve special moments, 
-                I like playing soccer with friends and I am passionate about the world of collecting 
+                Outside tech, I like photography, 
+                playing soccer with friends and I am passionate about collecting 
                 cards and mangas.</p>
             </SpotlightCard>
           </div>
@@ -157,16 +156,16 @@ function App() {
           <div style={{ flex: 1.5, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             <div style={{ flex: 1, display: 'flex', minHeight: 0 }}>
               <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 38, 255, 0.2)">
-                <h2 style={{ color: 'white', marginBottom: '0.5rem', fontSize: '0.85rem' }}>Education</h2>
-                <p style={{ color: '#aaa', fontSize: '0.6rem', lineHeight: '1.4' }}>🎓 Università degli studi di Palermo (2017 - 2020)<br/><br/>
+                <h2 style={{ color: 'white', marginBottom: '0.5rem', fontSize: '0.9rem' }}>Education</h2>
+                <p style={{ color: '#aaa', fontSize: '0.7rem', lineHeight: '1.4' }}>🎓 Università degli studi di Palermo (2017 - 2020)<br/><br/>
                   Bachelor's degree in Computer Science with thesis: Graph theory and application algorithms for social networks, with a grade of 105/110.</p>
               </SpotlightCard>
             </div>
 
             <div style={{ flex: 1, display: 'flex', minHeight: 0 }}>
               <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(8, 245, 115, 0.2)">
-                <h2 style={{ color: 'white', marginBottom: '0.5rem', fontSize: '0.85rem' }}>Skills</h2>
-                <p style={{ color: '#aaa', fontSize: '0.6rem', lineHeight: '1.4' }}>I mainly work as back-end engineer with: 
+                <h2 style={{ color: 'white', marginBottom: '0.5rem', fontSize: '0.9rem' }}>Skills</h2>
+                <p style={{ color: '#aaa', fontSize: '0.7rem', lineHeight: '1.4' }}>I mainly work as back-end engineer with: 
                   Java, Spring, Docker, SQL, JavaScript, HTML, CSS, Git, AWS. <br/><br/>
                   I also have experience with 
                   Python, C/C++, Node.js and TypeScript. <br/><br/>
@@ -179,8 +178,8 @@ function App() {
         {/* Card orizzontale sotto */}
         <div style={{ width: '100%', minHeight: 0 }}>
           <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(227, 243, 9, 0.1)">
-            <h2 style={{ color: 'white', marginBottom: '0.4rem', fontSize: '0.85rem' }}>Experience</h2>
-            <p style={{ color: '#aaa', fontSize: '0.6rem', lineHeight: '1.4' }}>I work as software engineer since 2020 mainly in financial services.
+            <h2 style={{ color: 'white', marginBottom: '0.4rem', fontSize: '0.9rem' }}>Experience</h2>
+            <p style={{ color: '#aaa', fontSize: '0.7rem', lineHeight: '1.4' }}>I work as software engineer since 2020 mainly in financial services.
               <br/><br/>
               I've collaborated with various clients, like as banks and insurance companies, 
               contributing to the development of scalable and efficient software solutions.
@@ -238,6 +237,5 @@ function App() {
     </div>
   )
 }
-
 
 export default App

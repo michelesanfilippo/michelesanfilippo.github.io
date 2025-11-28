@@ -408,6 +408,15 @@
   width: 100%;
   height: 40px;
   margin-top: 8px;
+  overflow: visible;
+  pointer-events: auto;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.pc-logo-loop:hover .logoloop__item img,
+.pc-logo-loop:hover .logoloop__node {
+  transform: scale(1.4) !important;
 }
 
 @keyframes glow-bg {
@@ -452,6 +461,12 @@
 
   .pc-details p {
     font-size: 14px;
+  }
+
+  .pc-avatar-content .avatar {
+    width: 140%;
+    height: auto;
+    bottom: -1%;
   }
 
   .pc-user-info {
@@ -513,9 +528,9 @@
   }
 
   .pc-avatar-content .avatar {
-    width: 120%;
+    width: 140%;
     height: auto;
-    bottom: -12%;
+    bottom: -1%;
   }
 
   .pc-mini-avatar {
@@ -561,9 +576,9 @@
   }
 
   .pc-avatar-content .avatar {
-    width: 120%;
+    width: 140%;
     height: auto;
-    bottom: -12%;
+    bottom: -1%;
   }
 
   .pc-mini-avatar {

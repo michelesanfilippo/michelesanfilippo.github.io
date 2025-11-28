@@ -1,5 +1,8 @@
-import React, { useEffect, useRef, useCallback, useMemo } from 'react';
+import React, { useEffect, useRef, useCallback, useMemo, useState } from 'react';
 import './ProfileCard.css';
+import LogoLoop from './LogoLoop';
+import { SiSpring, SiSpringboot, SiGit, SiGitlab, SiHtml5, SiCss3, SiTypescript, SiJavascript, SiReact, SiNodedotjs, SiOracle, SiSwagger, SiPostman } from 'react-icons/si';
+import { FaJava } from 'react-icons/fa';
 
 const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)';
 
@@ -41,6 +44,8 @@ const ProfileCardComponent = ({
 
   const enterTimerRef = useRef<any>(null);
   const leaveRafRef = useRef<any>(null);
+  
+  const [isCardHovered, setIsCardHovered] = useState(false);
 
   const tiltEngine = useMemo(() => {
     if (!enableTilt) return null;
@@ -101,9 +106,9 @@ const ProfileCardComponent = ({
 
       setVarsFromXY(currentX, currentY);
 
-      const stillFar = Math.abs(targetX - currentX) > 0.05 || Math.abs(targetY - currentY) > 0.05;
+      const stillFar = Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1;
 
-      if (stillFar || document.hasFocus()) {
+      if (stillFar) {
         rafId = requestAnimationFrame(step);
       } else {
         running = false;
@@ -304,8 +309,41 @@ const ProfileCardComponent = ({
     onContactClick?.();
   }, [onContactClick]);
 
+  const handleCardMouseEnter = useCallback(() => {
+    setIsCardHovered(true);
+  }, []);
+
+  const handleCardMouseLeave = useCallback(() => {
+    setIsCardHovered(false);
+  }, []);
+
+  const logoSpeed = useMemo(() => isCardHovered ? 45 : 60, [isCardHovered]);
+
+  const logoItems = useMemo(() => [
+    { node: <FaJava />, title: "Java" },
+    { node: <SiSpring />, title: "Spring" },
+    { node: <SiSpringboot />, title: "Spring Boot" },
+    { node: <SiHtml5 />, title: "HTML" },
+    { node: <SiCss3 />, title: "CSS" },
+    { node: <SiTypescript />, title: "TypeScript" },
+    { node: <SiJavascript />, title: "JavaScript" },
+    { node: <SiReact />, title: "React" },
+    { node: <SiNodedotjs />, title: "Node.js" },
+    { node: <SiGit />, title: "Git" },
+    { node: <SiGitlab />, title: "GitLab" },
+    { node: <SiOracle />, title: "Oracle" },
+    { node: <SiSwagger />, title: "Swagger" },
+    { node: <SiPostman />, title: "Postman" },
+  ], []);
+
   return (
-    <div ref={wrapRef} className={`pc-card-wrapper ${className}`.trim()} style={cardStyle}>
+    <div 
+      ref={wrapRef} 
+      className={`pc-card-wrapper ${className}`.trim()} 
+      style={cardStyle}
+      onMouseEnter={handleCardMouseEnter}
+      onMouseLeave={handleCardMouseLeave}
+    >
       {behindGlowEnabled && <div className="pc-behind" />}
       <div ref={shellRef} className="pc-card-shell">
         <section className="pc-card">
@@ -359,6 +397,21 @@ const ProfileCardComponent = ({
               <div className="pc-details">
                 <h3>{name}</h3>
                 <p>{title}</p>
+                <div className="pc-logo-loop">
+                  {/* @ts-ignore */}
+                  <LogoLoop
+                    logos={logoItems}
+                    speed={logoSpeed}
+                    direction="left"
+                    logoHeight={26}
+                    gap={60}
+                    pauseOnHover={false}
+                    scaleOnHover
+                    fadeOut={false}
+                    fadeOutColor="rgba(0, 0, 0, 0.9)"
+                    ariaLabel="Tech stack"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -370,4 +423,3 @@ const ProfileCardComponent = ({
 
 const ProfileCard = React.memo(ProfileCardComponent);
 export default ProfileCard;
-
