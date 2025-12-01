@@ -40,7 +40,7 @@ const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 2
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    if (divRef.current) {
+    if (divRef.current && !isMobile) {
       divRef.current.style.setProperty('--rotate-x', '0deg');
       divRef.current.style.setProperty('--rotate-y', '0deg');
     }

@@ -15,12 +15,18 @@
   --spotlight-color: rgba(255, 255, 255, 0.05);
   --rotate-x: 0deg;
   --rotate-y: 0deg;
-  transition: transform 3.5s cubic-bezier(0.23, 1, 0.32, 1);
-  transform: perspective(1000px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
 }
 
-.card-spotlight.hovered {
-  transition: transform 0.1s cubic-bezier(0.23, 1, 0.32, 1);
+@media (min-width: 769px) {
+  .card-spotlight {
+    transform: perspective(1000px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
+  }
+  
+  .card-spotlight.hovered {
+    transition: transform 0.1s cubic-bezier(0.23, 1, 0.32, 1);
+  }
 }
 
 .card-spotlight::before {
