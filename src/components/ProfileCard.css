@@ -95,6 +95,7 @@
   grid-area: 1/-1;
   border-radius: var(--card-radius);
   pointer-events: none;
+  overflow: visible;
 }
 
 .pc-inside {
@@ -103,6 +104,7 @@
   background-image: var(--inner-gradient);
   background-color: rgba(0, 0, 0, 0.9);
   transform: none;
+  overflow: visible;
 }
 
 .pc-shine {
@@ -121,6 +123,7 @@
   animation: holo-bg 16s linear infinite;
   animation-play-state: running;
   mix-blend-mode: color-dodge;
+  overflow: visible;
 }
 
 .pc-card:hover .pc-shine,
