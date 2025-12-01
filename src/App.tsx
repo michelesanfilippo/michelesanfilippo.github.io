@@ -195,7 +195,25 @@ function App() {
             )}
           </div>
 
-          <div style={{ flex: 1.5, minWidth: 0, display: 'none' }}>
+          <div style={{ flex: 1.5, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <div style={{ flex: 1, display: 'flex', minHeight: 0 }}>
+              <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 38, 255, 0.2)">
+                <h2 style={{ color: 'white', marginBottom: '0.5rem', fontSize: '0.9rem' }}>Education</h2>
+                <p style={{ color: '#aaa', fontSize: '0.7rem', lineHeight: '1.4' }}>🎓 Università degli studi di Palermo (2017 - 2020)<br/><br/>
+                  Bachelor's degree in Computer Science with thesis: Graph theory and application algorithms for social networks, with a grade of 105/110.</p>
+              </SpotlightCard>
+            </div>
+
+            <div style={{ flex: 1, display: 'flex', minHeight: 0 }}>
+              <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(8, 245, 115, 0.2)">
+                <h2 style={{ color: 'white', marginBottom: '0.5rem', fontSize: '0.9rem' }}>Skills</h2>
+                <p style={{ color: '#aaa', fontSize: '0.7rem', lineHeight: '1.4' }}>I mainly work as back-end engineer with: 
+                  Java, Spring, Docker, SQL, JavaScript, HTML, CSS, Git, AWS. <br/><br/>
+                  I also have experience with 
+                  Python, C/C++, Node.js and TypeScript. <br/><br/>
+                  I work by adopting Agile methodology and devOps principles.</p>
+              </SpotlightCard>
+            </div>
           </div>
         </div>
 

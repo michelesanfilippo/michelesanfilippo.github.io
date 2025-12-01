@@ -133,11 +133,35 @@ export const LogoLoop = memo(
     className,
     style
   }) => {
-    // Disable on mobile devices
+    // Simplified static version for mobile devices
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
     
     if (isMobile) {
-      return null;
+      // Return static grid of logos without animations
+      return (
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '8px',
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: '8px 0',
+          maxWidth: '100%',
+          overflow: 'hidden'
+        }}>
+          {logos.slice(0, 8).map((item, index) => (
+            <div key={index} style={{
+              fontSize: '20px',
+              color: 'rgba(255, 255, 255, 0.7)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              {'node' in item ? item.node : null}
+            </div>
+          ))}
+        </div>
+      );
     }
 
     const containerRef = useRef(null);
