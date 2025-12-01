@@ -28,7 +28,7 @@ const ProfileCardComponent = ({
   behindGlowSize,
   className = '',
   enableTilt = true,
-  enableMobileTilt = true,
+  enableMobileTilt = false,
   mobileTiltSensitivity = 5,
   miniAvatarUrl,
   name = 'Michele Sanfilippo',
@@ -48,7 +48,9 @@ const ProfileCardComponent = ({
   const [isCardHovered, setIsCardHovered] = useState(false);
 
   const tiltEngine = useMemo(() => {
-    if (!enableTilt) return null;
+    // Disable tilt on mobile devices for performance
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+    if (!enableTilt || isMobile) return null;
 
     let rafId: any = null;
     let running = false;

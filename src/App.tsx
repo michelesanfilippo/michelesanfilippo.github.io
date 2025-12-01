@@ -18,6 +18,7 @@ function App() {
           bendStrength={-0.5}
           interactive={true}
           parallax={false}
+          animationSpeed={0.8}
         />
       </div>
 

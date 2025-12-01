@@ -10,25 +10,28 @@ interface SpotlightCardProps {
 const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 255, 255, 0.25)' }: SpotlightCardProps) => {
   const divRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile] = useState(() => /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!divRef.current) return;
+    if (!divRef.current || isMobile) return;
     
     const rect = divRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    // Calculate rotation
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * 5; // Max 5 degrees
-    const rotateY = ((x - centerX) / centerX) * -5; // Max 5 degrees
-
     divRef.current.style.setProperty('--mouse-x', `${x}px`);
     divRef.current.style.setProperty('--mouse-y', `${y}px`);
     divRef.current.style.setProperty('--spotlight-color', spotlightColor);
-    divRef.current.style.setProperty('--rotate-x', `${rotateX}deg`);
-    divRef.current.style.setProperty('--rotate-y', `${rotateY}deg`);
+    
+    // Skip rotation calculations on mobile
+    if (!isMobile) {
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * 5;
+      const rotateY = ((x - centerX) / centerX) * -5;
+      divRef.current.style.setProperty('--rotate-x', `${rotateX}deg`);
+      divRef.current.style.setProperty('--rotate-y', `${rotateY}deg`);
+    }
   };
 
   const handleMouseEnter = () => {

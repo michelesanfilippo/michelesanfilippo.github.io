@@ -279,13 +279,18 @@ export default function FloatingLines({
   useEffect(() => {
     if (!containerRef.current) return;
 
+    // Detect mobile devices
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+
     const scene = new Scene();
 
     const camera = new OrthographicCamera(-1, 1, 1, -1, 0, 1);
     camera.position.z = 1;
 
-    const renderer = new WebGLRenderer({ antialias: true, alpha: false });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    // Disable antialiasing on mobile for performance
+    const renderer = new WebGLRenderer({ antialias: !isMobile, alpha: false, powerPreference: 'high-performance' });
+    // Reduce pixel ratio on mobile (1 instead of 2)
+    renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 2));
     renderer.domElement.style.width = '100%';
     renderer.domElement.style.height = '100%';
     containerRef.current.appendChild(renderer.domElement);
@@ -405,7 +410,8 @@ export default function FloatingLines({
       targetInfluenceRef.current = 0.0;
     };
 
-    if (interactive) {
+    // Disable interactive features on mobile to save performance
+    if (interactive && !isMobile) {
       renderer.domElement.addEventListener('pointermove', handlePointerMove);
       renderer.domElement.addEventListener('pointerleave', handlePointerLeave);
     }
@@ -414,7 +420,7 @@ export default function FloatingLines({
     const renderLoop = () => {
       uniforms.iTime.value = clock.getElapsedTime();
 
-      if (interactive) {
+      if (interactive && !isMobile) {
         currentMouseRef.current.lerp(targetMouseRef.current, mouseDamping);
         uniforms.iMouse.value.copy(currentMouseRef.current);
 
@@ -422,7 +428,7 @@ export default function FloatingLines({
         uniforms.bendInfluence.value = currentInfluenceRef.current;
       }
 
-      if (parallax) {
+      if (parallax && !isMobile) {
         currentParallaxRef.current.lerp(targetParallaxRef.current, mouseDamping);
         uniforms.parallaxOffset.value.copy(currentParallaxRef.current);
       }
@@ -439,7 +445,7 @@ export default function FloatingLines({
         ro.disconnect();
       }
 
-      if (interactive) {
+      if (interactive && !isMobile) {
         renderer.domElement.removeEventListener('pointermove', handlePointerMove);
         renderer.domElement.removeEventListener('pointerleave', handlePointerLeave);
       }
