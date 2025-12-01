@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import FloatingLines from './components/FloatingLines'
 import ProfileCard from './components/ProfileCard'
 import SpotlightCard from './components/SpotlightCard'
@@ -6,11 +6,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faReact, faInstagram, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 function App() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+      setIsMobile(mobile);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <div className="main-container" style={{ width: '100%', height: '100vh', position: 'relative', overflow: 'hidden' }}>
-      {/* FloatingLines Background */}
-      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-        <FloatingLines 
+      {/* FloatingLines Background - Disabled on mobile */}
+      {!isMobile && (
+        <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+          <FloatingLines 
           enabledWaves={['top', 'middle', 'bottom']}
           lineCount={[6, 8, 10]}
           lineDistance={[8, 6, 4]}
@@ -20,7 +33,8 @@ function App() {
           parallax={false}
           animationSpeed={0.8}
         />
-      </div>
+        </div>
+      )}
 
       {/* Social Icons - Centro Alto */}
       <div className="social-icons" style={{
