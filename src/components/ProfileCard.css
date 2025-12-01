@@ -72,7 +72,7 @@
   transform: translateZ(0) rotateX(0deg) rotateY(0deg);
   background: rgba(0, 0, 0, 0.9);
   backface-visibility: hidden;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .pc-card:hover,
@@ -95,7 +95,6 @@
   grid-area: 1/-1;
   border-radius: var(--card-radius);
   pointer-events: none;
-  overflow: visible;
 }
 
 .pc-inside {
@@ -104,16 +103,15 @@
   background-image: var(--inner-gradient);
   background-color: rgba(0, 0, 0, 0.9);
   transform: none;
-  overflow: visible;
 }
 
 .pc-shine {
-  -webkit-mask-image: url('/avatar/dev.png'), linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%), linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  -webkit-mask-image: url('/avatar/dev.png'), linear-gradient(to bottom, black 0%, black 100%), linear-gradient(to right, black 0%, black 100%);
   -webkit-mask-repeat: repeat, no-repeat, no-repeat;
   -webkit-mask-size: 30% auto, 100% 100%, 100% 100%;
   -webkit-mask-position: top calc(200% - (var(--background-y) * 2)) left calc(100% - (var(--background-x) * 0.5)), center, center;
   -webkit-mask-composite: source-in;
-  mask-image: url('/avatar/dev.png'), linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%), linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  mask-image: url('/avatar/dev.png'), linear-gradient(to bottom, black 0%, black 100%), linear-gradient(to right, black 0%, black 100%);
   mask-repeat: repeat, no-repeat, no-repeat;
   mask-size: 30% auto, 100% 100%, 100% 100%;
   mask-position: top calc(200% - (var(--background-y) * 2)) left calc(100% - (var(--background-x) * 0.5)), center, center;
@@ -123,7 +121,6 @@
   animation: holo-bg 16s linear infinite;
   animation-play-state: running;
   mix-blend-mode: color-dodge;
-  overflow: visible;
 }
 
 .pc-card:hover .pc-shine,
@@ -248,7 +245,7 @@
 
 .pc-avatar-content {
   mix-blend-mode: luminosity;
-  overflow: visible;
+  overflow: hidden;
   transform: translateZ(2);
   backface-visibility: hidden;
   position: relative;
