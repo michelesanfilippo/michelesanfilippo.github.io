@@ -417,6 +417,21 @@
   transform: scale(1.4) !important;
 }
 
+.pc-desktop-hint {
+  display: none;
+  text-align: center;
+  margin-top: 6px;
+}
+
+.pc-desktop-hint p {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: underline;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
 @keyframes glow-bg {
   0% {
     --bgrotate: 0deg;
@@ -472,6 +487,10 @@
 
   .pc-glare {
     display: none;
+  }
+
+  .pc-desktop-hint {
+    display: block;
   }
 
   .pc-avatar-content .avatar {
