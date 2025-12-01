@@ -444,9 +444,39 @@
 }
 
 @media (max-width: 768px) {
+  .pc-card-wrapper {
+    perspective: none;
+    transform: none;
+  }
+
+  .pc-behind {
+    display: none;
+  }
+
   .pc-card {
     height: 70svh;
     max-height: 450px;
+    animation: none;
+    transform: none !important;
+    box-shadow: none;
+  }
+
+  .pc-card:hover,
+  .pc-card.active {
+    transform: none !important;
+  }
+
+  .pc-shine {
+    display: none;
+  }
+
+  .pc-glare {
+    display: none;
+  }
+
+  .pc-avatar-content .avatar {
+    transform: translateX(-50%) !important;
+    will-change: auto;
   }
 
   .pc-details {
@@ -502,9 +532,16 @@
 }
 
 @media (max-width: 480px) {
+  .pc-card-wrapper {
+    perspective: none;
+    transform: none;
+  }
+
   .pc-card {
     height: 60svh;
     max-height: 380px;
+    animation: none;
+    transform: none !important;
   }
 
   .pc-details {
@@ -556,9 +593,16 @@
 }
 
 @media (max-width: 320px) {
+  .pc-card-wrapper {
+    perspective: none;
+    transform: none;
+  }
+
   .pc-card {
     height: 55svh;
     max-height: 320px;
+    animation: none;
+    transform: none !important;
   }
 
   .pc-details h3 {
