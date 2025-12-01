@@ -133,6 +133,13 @@ export const LogoLoop = memo(
     className,
     style
   }) => {
+    // Disable on mobile devices
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+    
+    if (isMobile) {
+      return null;
+    }
+
     const containerRef = useRef(null);
     const trackRef = useRef(null);
     const seqRef = useRef(null);
