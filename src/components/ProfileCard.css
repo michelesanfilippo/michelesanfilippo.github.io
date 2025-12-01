@@ -115,7 +115,7 @@
   mask-size: 35% auto;
   mask-position: center calc(50% - (var(--background-y) - 50%) * 0.5);
   transition: filter 0.8s ease, mask-position 0.3s ease;
-  filter: brightness(1.2) contrast(1.8) saturate(1.5) opacity(0.85);
+  filter: brightness(0.8) contrast(1.2) saturate(1.0) opacity(0.4);
   animation: holo-bg 16s linear infinite;
   animation-play-state: running;
   mix-blend-mode: color-dodge;
@@ -123,7 +123,7 @@
 
 .pc-card:hover .pc-shine,
 .pc-card.active .pc-shine {
-  filter: brightness(1.5) contrast(2.0) saturate(1.8) opacity(1);
+  filter: brightness(1.0) contrast(1.4) saturate(1.2) opacity(0.6);
   animation-duration: 20s;
   transition: filter 0.3s ease, animation-duration 0.5s ease;
 }
