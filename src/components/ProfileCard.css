@@ -106,16 +106,14 @@
 }
 
 .pc-shine {
-  -webkit-mask-image: url('/avatar/dev.png'), linear-gradient(to bottom, black 0%, black 100%), linear-gradient(to right, black 0%, black 100%);
-  -webkit-mask-repeat: repeat, no-repeat, no-repeat;
-  -webkit-mask-size: 30% auto, 100% 100%, 100% 100%;
-  -webkit-mask-position: top calc(200% - (var(--background-y) * 2)) left calc(100% - (var(--background-x) * 0.5)), center, center;
-  -webkit-mask-composite: source-in;
-  mask-image: url('/avatar/dev.png'), linear-gradient(to bottom, black 0%, black 100%), linear-gradient(to right, black 0%, black 100%);
-  mask-repeat: repeat, no-repeat, no-repeat;
-  mask-size: 30% auto, 100% 100%, 100% 100%;
-  mask-position: top calc(200% - (var(--background-y) * 2)) left calc(100% - (var(--background-x) * 0.5)), center, center;
-  mask-composite: intersect;
+  -webkit-mask-image: url('/avatar/dev.png');
+  -webkit-mask-repeat: repeat;
+  -webkit-mask-size: 35% auto;
+  -webkit-mask-position: center calc(50% - (var(--background-y) - 50%) * 0.5);
+  mask-image: url('/avatar/dev.png');
+  mask-repeat: repeat;
+  mask-size: 35% auto;
+  mask-position: center calc(50% - (var(--background-y) - 50%) * 0.5);
   transition: filter 0.8s ease, mask-position 0.3s ease;
   filter: brightness(1.2) contrast(1.8) saturate(1.5) opacity(0.85);
   animation: holo-bg 16s linear infinite;
