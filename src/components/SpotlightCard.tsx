@@ -13,7 +13,7 @@ const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 2
   const [isMobile] = useState(() => /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!divRef.current || isMobile) return;
+    if (!divRef.current) return;
     
     const rect = divRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
