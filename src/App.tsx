@@ -190,7 +190,7 @@ function App() {
                   Java, Spring, Docker, SQL, JavaScript, HTML, CSS, Git, AWS. <br/><br/>
                   I also have experience with 
                   Python, C/C++, Node.js and TypeScript. <br/><br/>
-                  I work by adopting Agile methodology and devOps principles.</p>
+                  I work by adopting Agile and devOps.</p>
               </SpotlightCard>
             </div>
           </div>
