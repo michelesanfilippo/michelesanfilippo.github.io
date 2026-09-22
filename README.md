@@ -1,11 +1,9 @@
-## React portfolio
-Simple portfolio project made in React, with a bit help of github copilot !
+## Minimal portfolio
+Simple portfolio project made in React, with a bit help of claude code !
 
 This is a portfolio website built using [React](https://react.dev/)
 
 ## [Live Demo](https://michelesanfilippo.github.io/)
-
-![Live demo screenshot](public/avatar/screen.png)
 
 to run the project you simply need to
 
@@ -19,4 +17,3 @@ npm install
 ```bash
 npm run dev
 ```
-

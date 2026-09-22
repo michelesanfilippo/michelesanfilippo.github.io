@@ -1,0 +1,39 @@
+.row {
+  display: inline-flex;
+  gap: 0.3rem;
+}
+
+.space {
+  width: 0.9rem;
+}
+
+/* Ogni tessera e' vetro come navbar/card: stessi token, cambiano insieme al
+   tema. La riga centrale (.hinge) e' la piega del cartellone split-flap. */
+.flap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(1.9rem, 5vw, 2.5rem);
+  height: clamp(2.4rem, 6.2vw, 3.1rem);
+  border-radius: 8px;
+  background: var(--glass-fill);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 var(--glass-edge-top), inset 0 -1px 0 var(--glass-edge-bottom);
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--color-text);
+  overflow: hidden;
+}
+
+.hinge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--glass-border);
+  transform: translateY(-0.5px);
+}

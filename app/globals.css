@@ -1,0 +1,126 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1d1d1f;
+  --color-muted: #6e6e73;
+  --color-accent: #0071e3;
+  --color-border: #d2d2d7;
+  /* Superfici di vetro (navbar e card) come token: le usano due componenti e
+     devono cambiare insieme al tema, altrimenti in notturna resterebbero lastre
+     bianche su fondo nero. */
+  --glass-fill: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.62),
+    rgba(255, 255, 255, 0.34) 58%,
+    rgba(255, 255, 255, 0.46)
+  );
+  --glass-border: rgba(255, 255, 255, 0.65);
+  --glass-shadow: 0 10px 30px rgba(31, 41, 61, 0.1);
+  --glass-edge-top: rgba(255, 255, 255, 0.85);
+  --glass-edge-bottom: rgba(255, 255, 255, 0.3);
+}
+
+/* Modalita' notte: lo attiva ThemeSwitch scrivendo data-theme su <html>.
+   Cambiano solo fondo e testi; --color-accent e le sfumature dell'hero restano
+   identiche, come richiesto. */
+html[data-theme="dark"] {
+  --color-bg: #000000;
+  --color-text: #f5f5f7;
+  --color-muted: #a1a1a6;
+  --color-border: #38383d;
+  /* Su fondo nero il vetro non e' bianco velato ma nero velato con un filo di
+     luce sopra: la trasparenza va abbassata molto, altrimenti si legge come
+     pannello grigio pieno. */
+  --glass-fill: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.05) 58%,
+    rgba(255, 255, 255, 0.09)
+  );
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+  --glass-edge-top: rgba(255, 255, 255, 0.22);
+  --glass-edge-bottom: rgba(255, 255, 255, 0.06);
+}
+
+/* Le sezioni sono bersaglio dello scroll dalla navbar: questo margine le fa
+   fermare sotto la barra invece che sotto di essa. */
+main > section {
+  scroll-margin-top: 6rem;
+}
+
+html {
+  height: 100%;
+}
+
+/* clip e non hidden: hidden rende html e body contenitori di scroll propri, e in
+   quel caso la navbar in position: sticky non si aggancia piu' al viewport (si
+   aggancerebbe a body, che non scorre). clip taglia l'overflow orizzontale senza
+   creare uno scroll container. */
+html,
+body {
+  max-width: 100vw;
+  overflow-x: clip;
+}
+
+body {
+  min-height: 100%;
+  color: var(--color-text);
+  background: var(--color-bg);
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Sfumature blu/arancio su tutta la pagina, non solo nella hero. position: fixed
+   invece di absolute sul documento intero: il livello resta un solo schermo di
+   pixel e non si ridipinge durante lo scroll, e le macchie non si allungano su
+   una pagina alta qualche migliaio di px. Serve anche al vetro di navbar e card,
+   che sfocano cio' che hanno dietro: su fondo pieno resterebbero opachi.
+   Nessun filter: blur, le macchie sono gia' morbide per costruzione (raggi larghi
+   e stop trasparente). */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      44rem 34rem at 17% 38%,
+      color-mix(in srgb, var(--color-accent) 30%, transparent),
+      transparent 66%
+    ),
+    radial-gradient(34rem 28rem at 30% 80%, rgba(255, 138, 76, 0.26), transparent 64%),
+    radial-gradient(40rem 30rem at 73% 30%, rgba(255, 152, 82, 0.24), transparent 66%),
+    radial-gradient(
+      32rem 26rem at 90% 74%,
+      color-mix(in srgb, var(--color-accent) 20%, transparent),
+      transparent 64%
+    );
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,104 @@
+/* La barra resta agganciata in alto allo scroll. E' trasparente: il vetro sta
+   sulla pillola dei link e sul contenitore dell'interruttore, non su tutta la
+   fascia, cosi' la sfumatura dell'hero resta visibile ai lati. */
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.5rem;
+}
+
+/* Vetro dai token condivisi con la card (globals.css): cambiano insieme al tema. */
+.pill,
+.switchSlot {
+  border-radius: 999px;
+  background: var(--glass-fill);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    var(--glass-shadow),
+    inset 0 1px 0 var(--glass-edge-top),
+    inset 0 -1px 0 var(--glass-edge-bottom);
+}
+
+.pill {
+  padding: 0.4rem;
+}
+
+.list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  list-style: none;
+}
+
+/* Un solo riquadro che trasla sulla voce attiva. La transizione e' su transform e
+   width perche' la posizione arriva da una misura in px: sono le due sole
+   proprieta' che cambiano, quindi il movimento resta sul compositor. */
+.indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-accent) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 26%, transparent);
+  transition:
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    width 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.link {
+  position: relative;
+  display: block;
+  padding: 0.6rem 1.45rem;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-muted);
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.link:hover {
+  color: var(--color-text);
+}
+
+.link[aria-current] {
+  color: var(--color-accent);
+}
+
+/* In alto a destra, fuori dalla pillola dei link: la barra e' centrata sulla
+   pillola, quindi l'interruttore va posizionato in assoluto per non spostarla. */
+.switchSlot {
+  position: absolute;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0.4rem 0.9rem 0.4rem 0.5rem;
+}
+
+/* Sotto questa larghezza la pillola centrata e l'interruttore in assoluto si
+   sovrappongono: la barra passa a una riga sola con i due blocchi affiancati. */
+@media (max-width: 620px) {
+  .bar {
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .switchSlot {
+    position: static;
+    right: auto;
+  }
+
+  .link {
+    padding: 0.45rem 0.7rem;
+  }
+}

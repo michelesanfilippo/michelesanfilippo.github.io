@@ -1,0 +1,129 @@
+/* Vetro fatto a mano. Sostituisce liquid-glass-react, il cui filtro SVG lasciava
+   un rettangolo rientrato, quattro puntini luminosi a meta' dei lati e frange
+   colorate ai bordi, non correggibili dall'esterno.
+   Il backdrop-filter qui non ha il costo che aveva sulla nav: rifa' la sfocatura
+   solo quando cambia cio' che sta dietro, e dietro c'e' la sfumatura statica
+   dell'hero, non l'avatar in movimento (che le sta accanto, non sotto). */
+.card {
+  width: 20rem;
+  padding: 1.15rem 1.35rem;
+  border-radius: 22px;
+  /* Il gradiente verticale, non una velatura piatta: e' la variazione di
+     luminosita' dall'alto in basso a far leggere una superficie inclinata alla
+     luce invece di un rettangolo bianco trasparente. I valori vengono dai token
+     in globals.css perche' li condivide con la navbar e devono cambiare insieme
+     al tema. */
+  background: var(--glass-fill);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  /* Tre strati: profondita' sotto, riga di luce sul bordo superiore interno
+     (lo spessore del vetro), alone appena accennato sul bordo inferiore. */
+  box-shadow:
+    var(--glass-shadow),
+    inset 0 1px 0 var(--glass-edge-top),
+    inset 0 -1px 0 var(--glass-edge-bottom);
+  display: flex;
+  flex-direction: column;
+  color: var(--color-text);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.kicker {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 0.45rem;
+}
+
+.name {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.sub {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  line-height: 1.4;
+}
+
+.subGap {
+  display: block;
+  height: 0.5rem;
+}
+
+/* Griglia chiave/valore: le etichette su una colonna propria invece che in linea
+   col valore, cosi' i tre valori partono tutti dallo stesso x. */
+.rows {
+  margin: 0.9rem 0 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.6rem;
+  row-gap: 0.3rem;
+  align-items: center;
+}
+
+.key {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.value {
+  margin: 0;
+  font-size: 0.75rem;
+  min-width: 0;
+}
+
+.mail {
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.mail:hover {
+  border-bottom-color: var(--color-muted);
+}
+
+.icons {
+  display: inline-flex;
+  gap: 0.55rem;
+}
+
+/* A riposo grigie come le etichette: si accendono nel colore del servizio al
+   passaggio del mouse. Il drop-shadow e' cio' che fa leggere il passaggio come
+   "si illumina" e non come semplice cambio di colore. */
+.icon {
+  display: inline-flex;
+  color: var(--color-muted);
+  transition:
+    color 0.18s ease,
+    filter 0.18s ease,
+    transform 0.18s ease;
+}
+
+.icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.icon:hover {
+  transform: translateY(-1px);
+}
+
+.linkedin:hover {
+  color: #0a66c2;
+  filter: drop-shadow(0 0 6px rgba(10, 102, 194, 0.55));
+}
+
+/* Nero in chiaro, bianco in notturna: con un nero fisso l'icona sparirebbe sul
+   fondo scuro proprio nel momento in cui dovrebbe accendersi. */
+.github:hover {
+  color: var(--color-text);
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-text) 45%, transparent));
+}

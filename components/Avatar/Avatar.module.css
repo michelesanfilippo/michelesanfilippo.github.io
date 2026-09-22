@@ -1,0 +1,35 @@
+/* Il box ha lo stesso rapporto della finestra di ritaglio (CROP_W x CROP_H in
+   avatar-frames.ts), quindi l'immagine non viene mai distorta. */
+/* La rotazione NON passa da custom properties: useTilt scrive direttamente
+   style.transform. Le custom properties si ereditano, quindi aggiornare --rx/--ry
+   qui invalidava lo stile di tutto il sottoalbero ad ogni frame e i due .layer
+   ri-risolvevano background-size/position (calc con var) 120 volte al secondo. */
+.wrapper {
+  --avatar-w: 220px;
+  width: var(--avatar-w);
+  height: calc(var(--avatar-w) * 322 / 300);
+  will-change: transform;
+}
+
+.spriteBox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Un solo layer: --fx/--fy sono le coordinate in pixel del frame nello sprite e
+   lo sprite viene scalato di avatar-w/CROP_W cosi' che la finestra di ritaglio
+   riempia esattamente il box. Cambiare posa = spostare il background, quindi non
+   c'e' mai piu' di una posa visibile (i due layer in dissolvenza mostravano un
+   pezzo della posa precedente lungo capelli e spalle). */
+.layer {
+  position: absolute;
+  inset: 0;
+  background-image: url("/avatar-sprite.webp");
+  background-repeat: no-repeat;
+  background-size: calc(var(--avatar-w) * 1536 / 300) calc(var(--avatar-w) * 1024 / 300);
+  background-position: calc(-1 * var(--avatar-w) * var(--fx) / 300)
+    calc(-1 * var(--avatar-w) * var(--fy) / 300);
+  will-change: transform;
+  backface-visibility: hidden;
+}

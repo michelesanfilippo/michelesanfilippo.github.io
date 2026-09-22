@@ -1,0 +1,17 @@
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon {
+  display: inline-flex;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.icon svg {
+  width: 17px;
+  height: 17px;
+  display: block;
+}

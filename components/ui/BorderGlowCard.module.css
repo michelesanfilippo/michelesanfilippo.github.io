@@ -1,0 +1,44 @@
+.card {
+  position: relative;
+  border-radius: 18px;
+  background: var(--glass-fill);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 var(--glass-edge-top), inset 0 -1px 0 var(--glass-edge-bottom);
+  isolation: isolate;
+}
+
+/* L'alone: un quadrato di gradiente radiale centrato sul cursore, mascherato in
+   modo che sopravviva solo l'anello del bordo (1px). Opacita' a 0 a riposo,
+   sale all'hover: niente JS per il fade, la posizione basta come tracking. */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(220px circle at var(--x, 50%) var(--y, 50%), var(--color-accent), transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 0;
+  padding: 1.35rem 1.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card::before {
+    display: none;
+  }
+}

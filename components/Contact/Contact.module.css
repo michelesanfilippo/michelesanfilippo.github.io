@@ -1,0 +1,69 @@
+.section {
+  max-width: 32rem;
+  margin: 0 auto;
+  padding: 6rem 2rem 10rem;
+  text-align: center;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: 2rem;
+}
+
+.text {
+  color: var(--color-muted);
+  font-size: 1.05rem;
+  line-height: 2;
+}
+
+.icons {
+  display: inline-flex;
+  gap: 0.6rem;
+  margin-left: 0.6rem;
+  vertical-align: middle;
+}
+
+.icon {
+  display: inline-flex;
+  color: var(--color-muted);
+  transition:
+    color 0.18s ease,
+    filter 0.18s ease,
+    transform 0.18s ease;
+  vertical-align: middle;
+}
+
+.icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.icon:hover {
+  transform: translateY(-1px);
+}
+
+.linkedin:hover {
+  color: #0a66c2;
+  filter: drop-shadow(0 0 6px rgba(10, 102, 194, 0.55));
+}
+
+/* Nero in chiaro, bianco in notturna, come nella card dell'hero. */
+.github:hover {
+  color: var(--color-text);
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-text) 45%, transparent));
+}
+
+.mail {
+  margin-left: 0.5rem;
+}
+
+.mail:hover {
+  color: var(--color-accent);
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-accent) 45%, transparent));
+}

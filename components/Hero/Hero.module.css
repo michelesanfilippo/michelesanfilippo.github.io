@@ -1,0 +1,70 @@
+.hero {
+  position: relative;
+  /* Niente isolation: isolate. Creerebbe un backdrop root e il backdrop-filter
+     della card smetterebbe di vedere le sfumature, che ora stanno su body. */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Avatar a centro-sinistra, testo animato a centro-destra, divisore da 1px nel
+   mezzo. Il divisore e' una colonna della griglia e non un bordo: cosi' il gap
+   vale su entrambi i lati e la linea cade esattamente al centro. Il gap e' la
+   meta' di prima perche' ora se ne sommano due. */
+.split {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 60rem;
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.25rem);
+}
+
+/* Sfuma alle estremita' invece di finire di netto: una linea piena da bordo a
+   bordo pesa troppo in una pagina con questa quantita' di bianco. */
+.divider {
+  align-self: stretch;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--color-border) 16%,
+    var(--color-border) 84%,
+    transparent
+  );
+}
+
+.avatarSide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.textSide {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media (max-width: 760px) {
+  .split {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 2.5rem;
+  }
+
+  /* In colonna singola non c'e' un sinistra/destra da dividere. */
+  .divider {
+    display: none;
+  }
+
+  .textSide {
+    justify-content: center;
+    text-align: center;
+  }
+}
