@@ -3,11 +3,14 @@ Simple portfolio project made in React
 
 This is a portfolio website built using [React](https://react.dev/)
 
-## [Live Demo](https://michelesanfilippo.github.io/)
+## [Live Demo Website](https://michelesanfilippo.github.io/)
 
-<p align="center" width="100%">
-<video src="/workspaces/michelesanfilippo.github.io/public/demoLive.mp4" width="420" height="270" controls></video>
-</p>
+
+
+
+https://github.com/user-attachments/assets/cd9e378f-f3a9-4089-bb85-3838ab244a63
+
+
 
 to run the project you simply need to
 
