@@ -1,11 +1,13 @@
 ## Minimal portfolio
-Simple portfolio project made in React, with a bit help of claude code !
+Simple portfolio project made in React
 
 This is a portfolio website built using [React](https://react.dev/)
 
 ## [Live Demo](https://michelesanfilippo.github.io/)
-<video src="/workspaces/michelesanfilippo.github.io/public/demoLive.mp4" width="420" height="270" controls></video>
 
+<p align="center" width="100%">
+<video src="/workspaces/michelesanfilippo.github.io/public/demoLive.mp4" width="420" height="270" controls></video>
+</p>
 
 to run the project you simply need to
 
